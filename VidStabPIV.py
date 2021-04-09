@@ -5,7 +5,6 @@ Based on OpenPIV and on OpenCV
 """
 
 
-import wx
 import os
 import cv2
 import numpy as np
@@ -79,9 +78,7 @@ class VidStab(object):
             xy_array[3, 1] = tmp_roi[0] - self.win_size / 2
 
             if len(xy_array[xy_array<0]) > 0:
-                wx.MessageBox("Negative ROI %d. Image cannot be cropped" %r,
-                              'getRoi',
-                              wx.OK | wx.ICON_INFORMATION)
+                print "Negative ROI %d. Image cannot be cropped" %r
                 return False
 
             self.rois.append(xy_array)
@@ -629,11 +626,11 @@ class PIV(object):
 if __name__ == '__main__':   
     ###########################################################################
     # - path to video -
-    input_vid = '/path/to/video/vid.mp4'
+    input_vid = 'path/to/video'
     
     # - GCP: [i, j]
-    gcp = [[3333, 508], [3294, 1888], [770, 264], [722, 1703]]
-  
+    gcp = [[102, 141], [650, 265], [14.7, 423.3], [333.3, 458]]
+
     # - window size -
     win_size = 64
 
